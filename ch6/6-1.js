@@ -12,11 +12,7 @@ function printBanner(){
 }
 
 function calculateOutstanding(invoice){
-  let outstanding = 0;
-  for (const o of invoice.orders) {
-    outstanding += o.amount;
-  }
-  return outstanding;
+  return invoice.orders.reduce((sum, order)=> sum += (order.amount),0);
 }
 
 function recordDueDate(invoice){
